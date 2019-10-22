@@ -10,11 +10,19 @@ class Hello(Resource):
         return {"Hello": name}
 
 class TurnOn(Resource):
-    def get(self):
-        return "on"
+    def get(self, pin):
+        temp = controller()
+        temp.changeState(pin, True)
+        return "On"
 
+class TurnOff(Resource):
+    def get(self, pin):
+        temp = controller()
+        temp.changeState(pin, False)
+        return "Off"
 
-api.add_resource(TurnOn, '/turnon')
+api.add_resource(TurnOn, '/turnon/<pin>')
+api.add_resource(TurnOff, '/turnoff/<pin>')
 api.add_resource(Hello, '/hello/<name>')
 
 if __name__ == '__main__':

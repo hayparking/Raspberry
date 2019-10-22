@@ -11,9 +11,10 @@ class controller():
         gpio.setmode(gpio.BCM)
 
 
-    def changeState(pin, state):
+    def changeState(self, pin, state):
         gpio.setup(pins[pin], gpio.OUT)
         gpio.output(pins[pin], state)
+        self.state = state
 
     def cleanAll():
         GPIO.cleanup()
