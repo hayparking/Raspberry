@@ -27,7 +27,6 @@ class Clear(Resource):
 		temp.cleanAll()
 		return "Clean all gpios"
 
-
 api.add_resource(Clear, '/clean')
 api.add_resource(TurnOn, '/turnon/<pin>')
 api.add_resource(TurnOff, '/turnoff/<pin>')
